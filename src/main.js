@@ -1,5 +1,5 @@
 const ruuvi = require('node-ruuvitag');
-const fetch = require('node-fetch');
+const fetch=(...args)=> import('node-fetch').then(({default:fetch})=>fetch(...args));
 
 ruuvi.on('found', (tag) => {
   console.log(`Found RuuviTag with id: ${tag.id}`);
@@ -9,7 +9,7 @@ ruuvi.on('found', (tag) => {
 
     const body = { message: `temperature: ${data.temperature}` };
 
-    fetch('http://95.216.154.69:9000/api/chats', {
+    fetch('http://95.216.207.110:9000/api/chats', {
       method: 'post',
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
