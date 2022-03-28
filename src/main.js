@@ -10,7 +10,7 @@ ruuvi.on('found', (tag) => {
     // const body = { message: `temperature: ${data.temperature}` };
     const body = {temperature: data.temperature, humidity: data.humidity};
 
-    fetch('http://95.216.207.110:9080/api/events', {
+    fetch('http://95.216.207.110:9000/api/events', {
       method: 'post',
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
